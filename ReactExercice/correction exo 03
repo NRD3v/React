@@ -1,0 +1,76 @@
+'use strict';
+import React from 'react';
+import {
+    AppRegistry,
+    Image,
+    StyleSheet,
+    Text,
+    View,
+    Switch,
+    StatusBar
+} from 'react-native';
+
+class FirstApp extends React.Component {
+    render() {
+        return (
+            <View style={styles.container}>
+                <StatusBar barStyle="light-content" />
+                <Text style={styles.welcome}>
+                    Try this :
+                </Text>
+                <Image
+                    style={styles.targetImage}
+                    source={ require('./assets/mind-blown.gif') }
+                    />
+                <View style={styles.leftright}>
+                    <Text style={styles.leftInstructions}>I'm on the <Text style={styles.left}>left</Text>.</Text>
+                    <Text style={styles.rightInstructions}>I'm on the <Text style={styles.right}>right</Text>.</Text>
+                </View>
+            </View>
+        );
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#262626'
+    },
+    welcome: {
+        fontSize: 20,
+        textAlign: 'right',
+        color: "white"
+    },
+    statusBar: {
+        backgroundColor: "white"
+    },
+    leftright: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        width: "70%"
+    },
+    left: {
+        color: "blue"
+    },
+    right: {
+        color: "red"
+    },
+    leftInstructions: {
+        color: "white"
+    },
+    rightInstructions: {
+        color: "white"
+    },
+    targetImage: {
+        borderColor: "#000",
+        borderRadius: 75,
+        borderWidth: 5,
+        width: 150,
+        height: 150,
+        margin: 20
+    }
+});
+
+AppRegistry.registerComponent('ReactExercice', () => FirstApp);
