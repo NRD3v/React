@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
-import MapView from 'react-native-maps';
+import MapView from 'react-native-maps'
+import Firebase from '../config/Firebase'
 
 export default class Map extends Component {
     render() {
@@ -50,4 +51,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: 150
     }
-});
+})

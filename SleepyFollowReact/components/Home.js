@@ -1,20 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {
     AppRegistry,
     StyleSheet,
     View,
     Text,
     Image
-} from 'react-native';
-import { Link } from 'react-router-native';
+} from 'react-native'
+import { Link } from 'react-router-native'
+import Firebase from '../config/Firebase'
+import Login from '../config/Facebook'
 
 export default class Home extends Component {
+    state = {
+        firebase: new Firebase()
+    }
+    getDB() {
+        console.log(this.state.firebase.storage());
+    }
     render() {
+        // return (
+        //     <View style={ styles.container }>
+        //         <Login />
+        //     </View>
+        // );
         return (
             <View style={ styles.container }>
                 <Image
                     source={ require('./../assets/sleepy-follow-logo.png') }
                 />
+                <Text>{ this.getDB() }</Text>
+
+                <Login />
+
                 <Link
                     to="/map"
                     underlayColor='#f0f4f7'
