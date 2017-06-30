@@ -48,6 +48,7 @@ export default class Map extends Component {
                     {this.state.markers.map(marker => (
                         <MapView.Marker
                             key={ marker.id }
+                            image={ require('../assets/pin50.png') }
                             coordinate={ marker.latlng }
                             title={ marker.title }
                             description={ marker.description }
