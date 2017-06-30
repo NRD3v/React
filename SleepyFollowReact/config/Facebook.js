@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
-const FBSDK = require('react-native-fbsdk');
-const { LoginButton, AccessToken } = FBSDK;
+import { View, Link } from 'react-native'
+import { Redirect } from 'react-router-native'
+import { LoginButton, AccessToken } from 'react-native-fbsdk'
+
 export default class Login extends Component {
     render() {
         return (
@@ -11,46 +12,30 @@ export default class Login extends Component {
                     onLoginFinished={
                         (error, result) => {
                             if (error) {
-                                alert("login has error: " + result.error);
+                                console.log(result.error)
+                                alert("Connexion échouée.")
                             } else if (result.isCancelled) {
-                                alert("login is cancelled.");
+                                alert("Connexion annulée.")
                             } else {
                                 AccessToken.getCurrentAccessToken().then(
                                     (data) => {
-                                        alert(data.accessToken.toString())
+                                        console.log(data.accessToken.toString());
+                                        alert("Vous êtes connecté.")
+                                        return (
+                                            <Redirect to="/map" />
+                                        )
                                     }
                                 )
                             }
                         }
                     }
-                    onLogoutFinished={() => alert("logout.")}/>
+                    onLogoutFinished={() => {
+                        alert("Vous êtes déconnecté.")
+                        return (
+                            <Redirect to="/home" />
+                        )
+                    }}/>
             </View>
-        );
+        )
     }
 }
-// const Login = React.createClass({
-//     render: function() {
-//         return (
-//             <View>
-//                 <LoginButton
-//                     publishPermissions={["publish_actions"]}
-//                     onLoginFinished={
-//                         (error, result) => {
-//                             if (error) {
-//                                 alert("login has error: " + result.error);
-//                             } else if (result.isCancelled) {
-//                                 alert("login is cancelled.");
-//                             } else {
-//                                 AccessToken.getCurrentAccessToken().then(
-//                                     (data) => {
-//                                         alert(data.accessToken.toString())
-//                                     }
-//                                 )
-//                             }
-//                         }
-//                     }
-//                     onLogoutFinished={() => alert("logout.")}/>
-//             </View>
-//         );
-//     }
-// })

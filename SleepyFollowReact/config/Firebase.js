@@ -1,4 +1,5 @@
 import * as firebase from 'firebase';
+
 export default class Firebase {
     constructor() {
         return firebase.initializeApp({

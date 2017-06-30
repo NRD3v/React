@@ -8,10 +8,10 @@ export default class Map extends Component {
         return (
             <View style={ styles.container }>
                 <MapView
-                    style={styles.map}
+                    style={ styles.map }
                     initialRegion={{
-                        latitude: 37.78825,
-                        longitude: -122.4324,
+                        latitude: 48.8232327,
+                        longitude: 2.36242279,
                         latitudeDelta: 0.0922,
                         longitudeDelta: 0.0421,
                     }}
