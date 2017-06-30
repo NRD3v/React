@@ -15,7 +15,7 @@ export default class Login extends Component {
                                 console.log(result.error)
                                 alert("Connexion échouée.")
                             } else if (result.isCancelled) {
-                                alert("Connexion annulée.")
+                                console.log("Connexion annulée.")
                             } else {
                                 AccessToken.getCurrentAccessToken().then(
                                     (data) => {

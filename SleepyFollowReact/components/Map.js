@@ -5,6 +5,7 @@ import MapButtons from '../components/MapButtons'
 
 export default class Map extends Component {
     state = {
+        // markers: { /* Firebase request */ },
         markers: [
             {
                 latlng: {
@@ -46,13 +47,14 @@ export default class Map extends Component {
                     }}>
                     {this.state.markers.map(marker => (
                         <MapView.Marker
+                            key={ marker.id }
                             coordinate={ marker.latlng }
                             title={ marker.title }
                             description={ marker.description }
                         />
                     ))}
                 </MapView>
-                {/*<MapButtons />*/}
+                <MapButtons />
             </View>
         )
     }

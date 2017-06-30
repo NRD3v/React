@@ -1,53 +1,42 @@
-import React, { Component } from 'react'
-import { Button, View, Text, Image, StyleSheet } from 'react-native'
+import React, { Component } from 'react';
+import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
 
-export default class MapButtons extends Component {
-    getValue() {
-        console.log('pressed');
-    }
+export default class TimePanel extends Component {
     render() {
         return (
             <View style={ styles.container }>
-                <View style={ styles.button }>
-                    <Button onPress={ this.getValue } value="10" title="10"/>
-                </View>
-                <View style={ styles.button }>
-                    <Button onPress={ this.getValue } value="20" title="20"/>
-                </View>
-                <View style={ styles.button }>
-                    <Button onPress={ this.getValue } value="30" title="30"/>
-                </View>
+                <TouchableOpacity style={ styles.button }>
+                    <Text style={ styles.text }>10m</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={ styles.button }>
+                    <Text style={ styles.text }>20m</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={ styles.button }>
+                    <Text style={ styles.text }>30m</Text>
+                </TouchableOpacity>
             </View>
-        )
-        // return (
-        //     <View>
-        //         <TouchableOpacity
-        //             style={ styles.button }
-        //             onPress={ console.log('ok') }>
-        //             <Text>10</Text>
-        //         </TouchableOpacity>
-        //         <TouchableOpacity
-        //             style={ styles.button }
-        //             onPress={ console.log('ok') }>
-        //             <Text>10</Text>
-        //         </TouchableOpacity>
-        //         <TouchableOpacity
-        //             style={ styles.button }
-        //             onPress={ console.log('ok') }>
-        //             <Text>10</Text>
-        //         </TouchableOpacity>
-        //     </View>
-        // )
+        );
     }
 }
-
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        position: 'absolute',
+        width: '100%',
+        bottom: 100,
+        display: 'flex',
         flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     button: {
+        width: 100,
         height: 50,
-        width: 75
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#3b5998'
+    },
+    text: {
+        color: '#fff',
+        fontSize: 16
     }
-})
+});
