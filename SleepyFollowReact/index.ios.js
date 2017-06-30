@@ -9,8 +9,8 @@ export default class SleepyFollowReact extends Component {
         return (
             <Router>
                 <Scene key="root">
-                    <Scene key="home" component={ Home } title="Home" initial={ true }/>
-                    <Scene key="map" component={ Map } title="Map"/>
+                    <Scene key="home" component={ Home } title="Home"/>
+                    <Scene key="map" component={ Map } title="Map" initial={ true }/>
                 </Scene>
             </Router>
         )
