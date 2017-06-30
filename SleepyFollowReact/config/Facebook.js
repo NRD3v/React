@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { View, Link } from 'react-native'
-import { Redirect } from 'react-router-native'
+import { View } from 'react-native'
 import { LoginButton, AccessToken } from 'react-native-fbsdk'
+import { Actions } from 'react-native-router-flux'
 
 export default class Login extends Component {
     render() {
@@ -20,10 +20,7 @@ export default class Login extends Component {
                                 AccessToken.getCurrentAccessToken().then(
                                     (data) => {
                                         console.log(data.accessToken.toString());
-                                        alert("Vous êtes connecté.")
-                                        return (
-                                            <Redirect to="/map" />
-                                        )
+                                        Actions.map()
                                     }
                                 )
                             }
@@ -31,9 +28,7 @@ export default class Login extends Component {
                     }
                     onLogoutFinished={() => {
                         alert("Vous êtes déconnecté.")
-                        return (
-                            <Redirect to="/home" />
-                        )
+                        Actions.home()
                     }}/>
             </View>
         )

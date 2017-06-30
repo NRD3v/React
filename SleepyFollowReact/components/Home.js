@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View, Text, Image } from 'react-native'
 import Firebase from '../config/Firebase'
 import Login from '../config/Facebook'
-import LinkToMap from '../components/LinkToMap'
 import Logo from '../components/Logo'
 
 export default class Home extends Component {
@@ -20,7 +19,6 @@ export default class Home extends Component {
             }}>
                 <Logo />
                 <Login />
-                {/*<LinkToMap />*/}
             </View>
         );
     }
